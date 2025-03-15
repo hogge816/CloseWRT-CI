@@ -2,7 +2,7 @@
 # 文件名：sync_n60pro_commits.sh
 
 # 初始化目录
-TARGET_REPO="https://github.com/padavanonly/immortalwrt-mt798x-24.10"
+TARGET_REPO="https://github.com/hogge816/immortalwrt-mt798x-24.10"
 SOURCE_REPO="https://github.com/coolsnowwolf/lede"
 WORK_DIR="/tmp/immortalwrt_sync"
 TARGET_BRANCH="openwrt-24.10"
