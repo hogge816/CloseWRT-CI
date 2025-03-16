@@ -90,47 +90,6 @@ jobs:
           echo "WRT_DATE=$WRT_DATE" >> $GITHUB_ENV
           echo "WRT_MARK=$WRT_MARK" >> $GITHUB_ENV
           echo "WRT_VER=$WRT_VER" >> $GITHUB_ENV
-
-      - name: Sync N60
-        run: |
-          # 初始化目录
-          TARGET_REPO="https://github.com/hogge816/immortalwrt-mt798x-24.10"
-          SOURCE_REPO="https://github.com/coolsnowwolf/lede"
-          WORK_DIR="/tmp/immortalwrt_sync"
-          TARGET_BRANCH="openwrt-24.10"
-
-          # 清理并创建工作目录
-          rm -rf $WORK_DIR && mkdir -p $WORK_DIR
-          cd $WORK_DIR
-
-          # 克隆目标仓库
-          git clone --depth 1 --branch $TARGET_BRANCH $TARGET_REPO
-          cd immortalwrt-mt798x-24.10
-
-          # 添加源仓库作为远程源
-          git remote add lede $SOURCE_REPO
-          git fetch lede
-
-          # 提取包含 "n60 pro" 的提交哈希（不区分大小写）
-          COMMITS=$(git log --grep='n60[ -]pro' --format=%H lede/master -- \
-            target/linux/mediatek \
-            package/kernel/mt7986 \
-            tools/mtk-bootloader)
-
-          # 逐个合并提交
-          for commit in $COMMITS; do
-            echo "正在合并提交: $commit"
-            git cherry-pick -x $commit || {
-            echo "合并冲突发生，请手动解决后执行: git cherry-pick --continue"
-             exit 1
-           }
-           done
-
-          # 推送更新到目标仓库（需提前配置权限）
-          git push origin $TARGET_BRANCH
-
-          # 清理工作目录（可选）
-          # rm -rf $WORK_DIR
           
       - name: Clone Code
         run: |
