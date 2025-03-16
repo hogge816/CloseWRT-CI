@@ -134,7 +134,7 @@ jobs:
           
       - name: Clone Code
         run: |
-          $GITHUB_WORKSPACE/Scripts/sync_n60pro_commits.sh
+          #$GITHUB_WORKSPACE/Scripts/sync_n60pro_commits.sh
           
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
