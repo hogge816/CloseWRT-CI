@@ -48,13 +48,12 @@ jobs:
       max-parallel: 4
       matrix:
         CONFIG: [MT7981, MT7986]
-        REPO_INFO:
-          #- {SOURCE: hanwckf/immortalwrt-mt798x, BRANCH: openwrt-21.02}
-          #- {SOURCE: padavanonly/immortalwrt-mt798x, BRANCH: openwrt-21.02}
-          - {SOURCE: hogge816/immortalwrt-mt798x-24.10, BRANCH: 24.10}
-          #- {SOURCE: dailook/immortalwrt-mt798x-23.05, BRANCH: openwrt-23.05}
-          #- {SOURCE: NekokeCore/immortalwrt-mt798x-24.10, BRANCH: openwrt-24.10}
-          #- {SOURCE: coolsnowwolf/lede, BRANCH: master}
+        SOURCE: 
+          - hogge816/immortalwrt-mt798x-24.10
+          - coolsnowwolf/lede
+        BRANCH:
+          - openwrt-24.10
+          - master
 
           
     #调用公用编译核心WRT-CORE.yml
