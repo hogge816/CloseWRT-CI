@@ -96,7 +96,9 @@ jobs:
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
           cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
-
+          
+          $GITHUB_WORKSPACE/Scripts/sync_n60pro_commits.sh
+          
           # 如果不存在 defconfig 则直接结束工作流
           if [ ! -d "defconfig" ]; then
             echo "defconfig directory not found, stopping workflow."
