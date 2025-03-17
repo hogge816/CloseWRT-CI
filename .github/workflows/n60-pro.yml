@@ -1,5 +1,5 @@
 #CI项目
-name: n60-pro
+name: mt7986
 
 #CI计划
 on:
@@ -51,7 +51,7 @@ jobs:
         REPO_INFO:
           #- {SOURCE: hanwckf/immortalwrt-mt798x, BRANCH: openwrt-21.02}
           #- {SOURCE: padavanonly/immortalwrt-mt798x, BRANCH: openwrt-21.02}
-          - {SOURCE: padavanonly/immortalwrt-mt798x-24.10, BRANCH: 24.10}
+          - {SOURCE: padavanonly/immortalwrt-mt798x-24.10, BRANCH: 24.100}
           #- {SOURCE: dailook/immortalwrt-mt798x-23.05, BRANCH: openwrt-23.05}
           #- {SOURCE: NekokeCore/immortalwrt-mt798x-24.10, BRANCH: openwrt-24.10}
 
