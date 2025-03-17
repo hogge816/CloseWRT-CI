@@ -49,7 +49,8 @@ jobs:
       matrix:
         CONFIG: [mt7986-ax6000,nx60pro-ipailna-high-power]
         REPO_INFO:
-          - {SOURCE: padavanonly/immortalwrt-mt798x-24.10,BRANCH: "24.10"}
+          #- {SOURCE: padavanonly/immortalwrt-mt798x-24.10,BRANCH: "24.10"}
+          - {SOURCE: hogge816/mtk798x-24.10,BRANCH: "openwrt-24.10"}
           #- {SOURCE: hanwckf/immortalwrt-mt798x, BRANCH: openwrt-21.02}
           #- {SOURCE: padavanonly/immortalwrt-mt798x, BRANCH: openwrt-21.02}
           #- {SOURCE: dailook/immortalwrt-mt798x-23.05, BRANCH: openwrt-23.05}
