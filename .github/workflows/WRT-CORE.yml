@@ -163,8 +163,8 @@ jobs:
         run: |
           cd ./wrt/package/
 
-          chmod +x Packages.sh
-          chmod +x Handles.sh
+          chmod +x $GITHUB_WORKSPACE/Scripts/Packages.sh
+          chmod +x $GITHUB_WORKSPACE/Scripts/Handles.sh
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
@@ -176,7 +176,7 @@ jobs:
 
           # 合并通用配置和平台配置
           cat $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
-          cat $GITHUB_WORKSPACE/Config/platform.txt >> .config
+          #cat $GITHUB_WORKSPACE/Config/platform.txt >> .config
         
           # 去重处理（可选）
           mv .config .config.tmp
@@ -248,7 +248,7 @@ jobs:
           mkdir -p ./upload/packages
           ls ./bin
           # 假设ipk/apk在./wrt/bin/packages目录下，根据实际情况修改路径
-          find ./ -type f \( -name "*.ipk" -o -name "*.apk" \) -exec mv -f {} ./upload/packages \;
+          find ./bin -type f \( -name "*.ipk" -o -name "*.apk" \) -exec mv -f {} ./upload/packages \;
           # 打包成tar.gz文件
           tar -czvf ./upload/packages.tar.gz ./upload/packages
           # 删除临时的packages目录
