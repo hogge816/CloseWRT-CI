@@ -174,7 +174,7 @@ jobs:
           find ./defconfig -type f -iname "*$WRT_CONFIG*" -exec cat {} + | sort | uniq > .config
 
           # 合并通用配置和平台配置
-          #cat $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
+          cat $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
           #cat $GITHUB_WORKSPACE/Config/platform.txt >> .config
         
           # 去重处理（可选）
