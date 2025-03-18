@@ -163,6 +163,8 @@ jobs:
         run: |
           cd ./wrt/package/
 
+          chmod +x Packages.sh
+          chmod +x Handles.sh
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
