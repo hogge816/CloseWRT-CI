@@ -1,5 +1,5 @@
 #CI项目
-name: mt7986
+name: mt798x
 
 #CI计划
 on:
