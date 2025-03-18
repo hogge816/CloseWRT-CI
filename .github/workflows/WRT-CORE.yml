@@ -78,7 +78,7 @@ jobs:
           sudo timedatectl set-timezone "Asia/Shanghai"
 
           sudo mkdir -p /mnt/build_wrt
-          sudo chown $USER:$USER /mnt/build_wrt
+          sudo chown -R 1777 /mnt/build_wrt
           sudo ln -s /mnt/build_wrt $GITHUB_WORKSPACE/wrt
 
       - name: Initialization Values
@@ -182,7 +182,7 @@ jobs:
           mv .config .config.tmp
           awk -F'=' '!seen[$1]++' .config.tmp > .config
           rm .config.tmp
-
+          chmod +x $GITHUB_WORKSPACE/Scripts/Settings.sh
           $GITHUB_WORKSPACE/Scripts/Settings.sh
 
           make defconfig -j$(nproc) && make clean -j$(nproc)
